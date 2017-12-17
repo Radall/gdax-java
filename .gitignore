@@ -7,3 +7,6 @@ gdax.properties
 classes/
 out/
 application*.yml
+/bin/
+/.classpath
+/.settings/

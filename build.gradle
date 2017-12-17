@@ -25,22 +25,41 @@ repositories {
 
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 project.archivesBaseName = 'gdax-java'
 project.applicationName = 'gdax-java'
 
 dependencies {
-    compile 'junit:junit:4.12'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.fasterxml.jackson.core:jackson-core:2.8.6'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.6'
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.8.6'
-    compile 'org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE'
-    compile 'org.springframework:spring-context:4.3.4.RELEASE'
-    compile 'joda-time:joda-time:2.9.7'
+    implementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.6'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.6'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.8.6'
+    implementation 'org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE'
+    implementation 'org.springframework:spring-context:4.3.4.RELEASE'
+    implementation 'joda-time:joda-time:2.9.7'
 
     testCompile 'org.springframework:spring-test:4.3.5.RELEASE'
     testCompile 'org.springframework.boot:spring-boot-test:1.5.4.RELEASE'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.output
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }
 
 tasks.withType(Jar) {
