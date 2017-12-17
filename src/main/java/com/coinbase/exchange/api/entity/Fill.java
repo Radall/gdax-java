@@ -9,7 +9,8 @@ public class Fill {
     private Integer trade_id;
     private String product_id;
     private BigDecimal size;
-    private String order_id;
+    private BigDecimal price;
+	private String order_id;
     private String created_at;
     private String liquidity;
     private BigDecimal fee;
@@ -39,6 +40,14 @@ public class Fill {
     public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
+
+    public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
 
     public String getCreated_at() {
         return created_at;
