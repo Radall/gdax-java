@@ -7,8 +7,9 @@ public class Subscribe {
 
     String type;
     String[] product_ids;
+    String[] channels;
 
-    // Used for signing the subscribe message to the Websocket feed
+	// Used for signing the subscribe message to the Websocket feed
     String signature;
     String passphrase;
     String timestamp;
@@ -37,6 +38,14 @@ public class Subscribe {
         this.product_ids = product_ids;
     }
 
+    public String[] getChannels() {
+		return channels;
+	}
+
+	public void setChannels(String[] channels) {
+		this.channels = channels;
+	}
+	
     public Subscribe setSignature(String signature) {
         this.signature = signature;
         return this;
